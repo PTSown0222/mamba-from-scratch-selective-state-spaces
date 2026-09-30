@@ -12,8 +12,11 @@ def rms_norm(x, weight, eps=1e-5):
     rms = torch.sqrt(torch.mean(x**2, dim=-1, keepdim=True) + eps)
     return x / rms * weight
 
-# Step 2 - silu (not yet solved)
-# TODO: implement
+# Step 2 - silu
+def silu(x):
+    """Apply the SiLU activation elementwise."""
+    sigmoid = torch.sigmoid(x)
+    return x * sigmoid
 
 # Step 3 - causal_depthwise_conv1d (not yet solved)
 # TODO: implement
